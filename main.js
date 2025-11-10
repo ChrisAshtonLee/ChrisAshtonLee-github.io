@@ -13,7 +13,7 @@ scene.add(cube);
 camera.position.z = 5;
 const ptgeometry = new THREE.BufferGeometry();
 const positions = [];
-for (i  =0; i<20; i++ ){
+for (let i  =0; i<20; i++ ){
     positions.push(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);
 }
 ptgeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
