@@ -11,7 +11,16 @@ const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 camera.position.z = 5;
-
+const ptgeometry = new THREE.BufferGeometry();
+const positions = [];
+for (i  =0; i<20; i++ ){
+    positions.push(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);
+}
+ptgeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+const ptmaterial = new THREE.PointsMaterial({ color: 0xff0000, size: 0.15, sizeAttenuation: true });
+const points = new THREE.Points(ptgeometry, ptmaterial);
+scene.add(points);
+positions.push(1, 1, 1);
 function animate() {
     requestAnimationFrame(animate);
     cube.rotation.x += 0.01;
