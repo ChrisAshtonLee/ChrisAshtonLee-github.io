@@ -5,12 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christopher Lee</title>
-  
+    <style>
+        body { margin: 0; }
+        #boid-container {
+            width: 80vw; /* 80% of viewport width */
+            height: 80vh; /* 60% of viewport height */
+            background-color: #eee;
+            margin: 20px auto; /* Center the div */
+            border: 1px solid black;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
 </head>
 <body>  
   <h1>
-    Hi, I'm Christopher Lee and these are some boids.
+    Tukey Median: 
   </h1>
+  <div id="menu" style="position: absolute; top: 10px; left: 10px; color: white; background: rgba(0, 0, 0, 0.7); padding: 10px; z-index: 10;">
+    <h3>Input Mode</h3>
+    <label>
+        <input type="radio" name="inputMode" value="click" checked>
+        Click to Place Point
+    </label><br>
+    <label>
+        <input type="radio" name="inputMode" value="enter">
+        Enter Point Coordinates
+    </label>
+    <p>Current Depth (Z): <span id="currentDepth">0.0</span></p>
+    <p>Right-Click to Place.</p>
+
+    <hr>
+    
+    <p>Points Placed: <span id="pointCount">0</span></p>
+    <button id="computeButton" disabled>Compute Tukey Median Contour</button>
+    <button id="deleteButton" disabled>Delete Points</button>
+    <p>Selected: <span id="selectionCount">0</span></p>
+ 
+    <div id="feedback" style="margin-top: 10px;"></div>
+</div>
+  <div id = "boid-container" data-bs-theme="dark"></div>
   <script type = "module" src="/main.js"> </script>
 </body>
 </html>
